@@ -4,7 +4,7 @@
 
 # Whisper Assistant: Your Voice-Driven Coding Companion
 
-Whisper Assistant is an extension for Visual Studio Code that transcribes your spoken words into text within the VSCode editor. This hands-free approach to coding allows you to focus on your ideas instead of your typing.
+Whisper Assistant is an extension for Visual Studio Code and its forks, e.g. **Cursor** that transcribes your spoken words into text within the programming editor. This hands-free approach to coding allows you to focus on your ideas instead of your typing.
 
 Whisper Assistant can also be integrated with other powerful AI tools, such as Chat GPT-4 or the [Cursor.so application](https://www.cursor.so/), to create a dynamic, AI-driven development environment.
 
