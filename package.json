@@ -1,0 +1,90 @@
+{
+  "name": "whisper-assistant",
+  "displayName": "Whisper Assistant",
+  "description": "Leveraging OpenAI's Whisper to transcribe your speech, enhancing your coding efficiency and experience.",
+  "version": "1.0.0",
+  "publisher": "MartinOpenSky",
+  "icon": "images/whisper-assistant.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martin-opensky/whisper-assistant-vscode.git"
+  },
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onDidChangeWorkspaceFolders"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "whisperAssistant.toggleRecording",
+        "title": "Toggle Recording"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "whisperAssistant.toggleRecording",
+        "key": "ctrl+m",
+        "mac": "cmd+m"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Whisper Assistant Settings",
+      "properties": {
+        "whisper-assistant.apiProvider": {
+          "type": "string",
+          "default": "localhost",
+          "enum": [
+            "localhost",
+            "openai",
+            "groq"
+          ],
+          "description": "Select the API provider for transcription"
+        },
+        "whisper-assistant.apiKey": {
+          "type": "string",
+          "default": "localhost",
+          "description": "API key for the selected provider"
+        },
+        "whisper-assistant.customEndpoint": {
+          "type": "string",
+          "default": "http://localhost:4444",
+          "description": "Custom endpoint URL (used for localhost)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "yarn run compile && yarn run lint && rm -rf .vscode-test",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package",
+    "publish": "vsce publish",
+    "clean": "rm -rf out .vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.70.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "@vscode/test-electron": "^2.3.4",
+    "eslint": "^8.47.0",
+    "glob": "^10.3.3",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "openai": "^4.72.0"
+  }
+}
